@@ -115,4 +115,12 @@ class Employe
 
         return $this;
     }
+
+    public function getAge(): ?string{
+
+        $now = new \DateTime();
+        $interval = $this->dateNaissance->diff($now);
+
+        return $interval->format("%Y");
+    }
 }
