@@ -5,5 +5,8 @@
 {% block body %}
     <h1>Liste des entreprises</h1>
 
-    {{tableau}}
+    {% for entreprise in entreprises %}
+       <b> <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{entreprise}}</a></b> <br>
+    {% endfor %}
+        
 {% endblock %}
