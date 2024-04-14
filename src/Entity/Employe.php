@@ -98,29 +98,31 @@ class Employe
         return $this;
     }
 
+    
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+    
+    public function setVille(?string $ville): static
+    {
+        $this->ville = $ville;
+        
+        return $this;
+    }
+    
+    public function getAge(): ?string{
+        
+        $now = new \DateTime();
+        $interval = $this->dateNaissance->diff($now);
+        
+        return $interval->format("%Y");
+    }
+    
     public function __toString(){
         
         return $this->nom. " ".$this->prenom;
 
     }
 
-    public function getVille(): ?string
-    {
-        return $this->ville;
-    }
-
-    public function setVille(?string $ville): static
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getAge(): ?string{
-
-        $now = new \DateTime();
-        $interval = $this->dateNaissance->diff($now);
-
-        return $interval->format("%Y");
-    }
 }
